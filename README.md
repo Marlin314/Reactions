@@ -3,7 +3,7 @@
 
 This is the Code Base for the Intermediate Java course that I teach at NEU Seattle campus. In that course 
 we build a single medium scale project (about 25 classes) over the course of a single semester. The documentation 
-for my course is on my UW website which is at [CourseNotes](depts.washington.edu/cprogs)
+for my course is on my UW website which is at [CourseNotes](https://depts.washington.edu/cprogs)
 
 If you go to that site, click on the Mid button (for Mid level, i.e. intermediate Java) to get to my course notes. 
 I have not Yet updated those notes, nor have I filled in this repository, but eventually I hope to rebuild the project 
