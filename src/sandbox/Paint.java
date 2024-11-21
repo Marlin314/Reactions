@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Paint extends WinApp{
   public static int clicks = 0; // we will total the mouse clicks
   public static Path thePath = new Path();
+  public static Pic thePic = new Pic();  // one single Picture -a list of Paths
   
   public Paint(){super("Paint", 1000, 700);}
 
@@ -28,14 +29,17 @@ public class Paint extends WinApp{
     g.drawString(msg,x,y);
     g.drawOval(x,y,3,3); // 3 is just a small number to make a small dot
 
-    thePath.draw(g);
+    //thePath.draw(g);
+    thePic.draw(g);  // draw the whole picture not just the last path
   }
   
   @Override
   public void mousePressed(MouseEvent me){
     clicks++;
-    thePath.clear();
-    thePath.add(me.getPoint());
+    //thePath.clear();
+    thePath = new Path(); // instead of clearing create new
+    thePic.add(thePath); // add new path to pic
+    thePath.add(me.getPoint()); // update that last path now in pic
     repaint();
   }
   
@@ -55,5 +59,10 @@ public class Paint extends WinApp{
         g.drawLine(p.x,p.y,n.x,n.y);
       }
     }
+  }
+
+  //--------------------Pic----------------------------
+  public static class Pic extends ArrayList<Path>{
+    public void draw(Graphics g){for(Path p:this){p.draw(g);}}
   }
 }
