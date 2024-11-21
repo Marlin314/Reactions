@@ -2,10 +2,10 @@ package graphics;
 
 
 /*
- * WinApp is both a JPanel which contains the paint proc and it is an
+ * WinApp is both a JPanel which contains the paint proc, and it is an
  * adaptor for the two types of mouse listeners and the key listener.
  *
- * So to build a simple windows app you extend WinApp, override
+ * So to build a simple Windows app you extend WinApp, override
  * paintComponent() and any of the listening behaviors like mouseClicked()
  * or keyTyped() that you need in your app.
  *
@@ -27,7 +27,7 @@ import javax.swing.*;
 public class WinApp extends JPanel
     implements MouseListener, MouseMotionListener, KeyListener{
   public static JFrame FRAME;
-  public static WinApp PANEL; // JPanel that is also a lisener
+  public static WinApp PANEL; // JPanel that is also a listener
   public static String TITLE = "No Name";
   public static Dimension PREF_SIZE = new Dimension(500,400);
 

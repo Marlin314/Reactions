@@ -1,8 +1,11 @@
 package sandbox;
 import graphics.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
 
 public class Paint extends WinApp{
+  public static int clicks = 0; // we will total the mouse clicks
+  
   public Paint(){super("Paint", 1000, 700);}
 
   @Override
@@ -12,7 +15,7 @@ public class Paint extends WinApp{
     g.fillOval(100,50,200,300);
     g.setColor(Color.BLACK);
     g.drawLine(100,600,600,100);
-    int x = 400, y = 200; String msg = "Dude";
+    int x = 400, y = 200; String msg = "Clicks = "+clicks;
 
     FontMetrics fm = g.getFontMetrics(); 
     int a = fm.getAscent(), d = fm.getDescent();
@@ -21,6 +24,12 @@ public class Paint extends WinApp{
     
     g.drawString(msg,x,y);
     g.drawOval(x,y,3,3); // 3 is just a small number to make a small dot
+  }
+
+  @Override
+  public void mousePressed(MouseEvent me){
+    clicks++; // bump up the click counter.
+    repaint(); // don't forget this. You changed your state so repaint
   }
 
   public static void main(String[] args){PANEL=new Paint(); WinApp.launch();}
